@@ -7,9 +7,11 @@ http://github.com/kete/tiny_mce/blob/master/README.rdoc
 
 = Usage
 
-To use this plugin, clone the source, gem build, gem install:
+To use this plugin, clone the source, submodule init, submodule update, gem build, gem install:
 
   git clone http://github.com/tauop/tinymce_splitblockquote.git
+  git submodule init
+  git submodule update
   gem build tinymce_splitblockquote.gemspec
   gem install tinymce_splitblockquote-0.0.1.gem
 
