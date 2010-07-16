@@ -1,0 +1,3 @@
+[submodule "lib/assets"]
+	path = lib/assets
+	url = http://github.com/Tauop/tinymce_splitblockquote-plugin.git
