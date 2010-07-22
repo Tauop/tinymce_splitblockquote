@@ -7,25 +7,21 @@ http://github.com/kete/tiny_mce/blob/master/README.rdoc
 
 = Usage
 
-To use this plugin, clone the source, submodule init, submodule update, gem build, gem install:
-
-  git clone http://github.com/Tauop/tinymce_splitblockquote.git
-  git submodule init
-  git submodule update
-  gem build tinymce_splitblockquote.gemspec
-  gem install tinymce_splitblockquote-0.0.1.gem
+To use this plugin, just install it via gem :
+  gem install tinymce_splitblockquote
 
 and add the following after the tiny_mce gem config line:
 
-  config.gem 'tiny_mce-plugin'
+  config.gem 'tiny_mce'
 
-Alternatively, you can install it as a plugin. To do so, open a console, and in the root of you Rails application,
-install the plugin by running one of the following (depending on the method you use to import plugins):
-* script/plugin install git://github.com/Tauop/tinymce_splitblockquote.git
-* piston import git://github.com/Tauop/tinymce_splitblockquote.git vendor/plugins/tinymce_splitblockquote
-* git submodule add git://github.com/Tauop/tinymce_splitblockquote.git vendor/plugins/tinymce_splitblockquote
-* Download the latest files ( http://github.com/Tauop/tinymce_splitblockquote/tarball/master ) and extract to vendor/plugins/tinymce_splitblockquote
+= Build
 
+To build the gem : clone the source, submodule init, submodule update, gem build, gem install:
+
+  git clone http://github.com/Tauop/tinymce_splitblockquote.git
+  git submodule init && git submodule update
+  rake gemspec:generate
+  rake build && rake install
 
 = Credits
 
