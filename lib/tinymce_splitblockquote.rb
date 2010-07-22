@@ -19,6 +19,24 @@
 
 require 'tiny_mce'
 
+unless defined?(TinyMCE::Plugin)
+  # as tiny_mce 0.1.5 isn't released yet, and only tiny_mce 0.1.4
+  # is on rubygem, we defined the plugin system
+  module TinyMCE
+    # copied from http://github.com/kete/tiny_mce/commit/16ab9054888ea39eead897226d72b3eaf6c20578
+    class Plugin
+      cattr_accessor :assets_path
+      def self.install
+        return unless File.directory?(self.assets_path)
+        require 'fileutils'
+        puts "Installing #{self.name} plugin assets from #{self.assets_path}"
+        FileUtils.cp_r "#{self.assets_path}/.", File.join(Rails.root.to_s, 'public', 'javascripts', 'tiny_mce')
+      end
+    end
+  end
+end
+
+# inspired from http://github.com/kete/tiny_mce_plugin_example
 TinyMCE.install_or_update_tinymce
 
 class TinyMCESplitBlockquote < TinyMCE::Plugin
