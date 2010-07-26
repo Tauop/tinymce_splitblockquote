@@ -29,6 +29,12 @@ unless defined?(TinyMCE::Plugin)
       def self.install
         return unless File.directory?(self.assets_path)
         require 'fileutils'
+
+        dest = File.join(Rails.root.to_s, 'public', 'javascripts' )
+        dest = File.join(dest, 'tiny_mce', 'plugins', 'splitblockquote', 'editor_plugin_src.js' )
+        orig = File.join(self.assets_path, 'plugins', 'splitblockquote', 'editor_plugin_src.js' )
+
+        return if FileUtils.identical?( orig, dest)
         puts "Installing #{self.name} plugin assets from #{self.assets_path}"
         FileUtils.cp_r "#{self.assets_path}/.", File.join(Rails.root.to_s, 'public', 'javascripts', 'tiny_mce')
       end
