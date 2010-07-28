@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "tinymce_splitblockquote"
-    gem.version = "0.0.4"
+    gem.version = "0.0.5"
     gem.summary = %Q{A tiny_mce gem's plugin installing my splitblockquote plugin.}
     gem.description = %Q{This plugin splits (nested) blockquotes when the user try to break lines into them.}
 
